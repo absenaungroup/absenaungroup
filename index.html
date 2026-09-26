@@ -215,7 +215,7 @@
     const d = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptor();
     if(!d) { alert("Wajah tidak terlihat!"); resetUI(); return; }
 
-    const match = new faceapi.FaceMatcher(labeledDescriptors, 0.6).findBestMatch(d.descriptor);
+    const match = new faceapi.FaceMatcher(labeledDescriptors, 0.45).findBestMatch(d.descriptor);
     if(match.label === 'unknown') { alert("Wajah tidak dikenal!"); resetUI(); }
     else {
       navigator.geolocation.getCurrentPosition(async p => {
